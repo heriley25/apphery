@@ -84,33 +84,6 @@ st.markdown(
 st.markdown('<a id="inicio"></a><br><br>', unsafe_allow_html=True)
 st.image('img/encabezado.png')
 
-########################################################################
-#                        ATRIBUTOS DEL DATASET                         #
-########################################################################
-st.markdown('<a id="atributos-del-dataset"></a><br>', unsafe_allow_html=True)
-with st.container(border=True):
-    st.subheader('Atributos del Dataset')
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.metric("Número de Variables", f'{variables}', border=True)
-
-    with col2:
-        st.metric("Número de Filas", f'{filas}', border=True)
-
-    with col3:
-        st.metric("Número de Departamentos", f'{num_deptos}', border=True)
-    with col4:
-        st.metric("Número de Municipios", f'{num_mpios}', border=True)
-
-    if st.checkbox('Mostrar detalles del Origen de los datos'):
-        st.write('Conjunto de datos descargados del portal de Datos Abiertos del Gobierno Nacional en:')
-        st.write('https://www.datos.gov.co/Minas-y-Energ-a/Estado-de-la-prestaci-n-del-servicio-de-energ-a-en/3ebi-d83g/about_data')
-
-    with st.expander('Mostrar el dataframe original'):
-        st.dataframe(df)
-
-    with st.expander('Mostrar Datos Energía Reactiva anual por Municipio'):
-        st.dataframe(df_pivote)
 
 
 
@@ -248,6 +221,42 @@ with st.container(border=True):
 
     st.plotly_chart(fig_barras, use_container_width=True)
 
+    
+########################################################################
+#                        ATRIBUTOS DEL DATASET                         #
+########################################################################
+st.markdown('<a id="atributos-del-dataset"></a><br>', unsafe_allow_html=True)
+with st.container(border=True):
+    st.subheader('Atributos del Dataset')
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Número de Variables", f'{variables}', border=True)
+
+    with col2:
+        st.metric("Número de Filas", f'{filas}', border=True)
+
+    with col3:
+        st.metric("Número de Departamentos", f'{num_deptos}', border=True)
+    with col4:
+        st.metric("Número de Municipios", f'{num_mpios}', border=True)
+
+    if st.checkbox('Mostrar detalles del Origen de los datos'):
+        st.write('Conjunto de datos descargados del portal de Datos Abiertos del Gobierno Nacional en:')
+        st.write('https://www.datos.gov.co/Minas-y-Energ-a/Estado-de-la-prestaci-n-del-servicio-de-energ-a-en/3ebi-d83g/about_data')
+
+    with st.expander('Mostrar el dataframe original'):
+        st.dataframe(df)
+
+    with st.expander('Mostrar Datos Energía Reactiva anual por Municipio'):
+        st.dataframe(df_pivote)
+
+
+st.text ('Que la motivación no se pierda en el camino, por que te perderas de ver el resultado')
+st.html("""
+<div style="text-align: right;">
+    PROYECTO FINAL DE ANÁLISIS DE DATOS / Nivel Explorador
+</div>
+""")
 ########################################################################
 #                             MENÚ LATERAL                             #
 ########################################################################
